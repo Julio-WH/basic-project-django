@@ -1,0 +1,30 @@
+{% extends "base.html" %}
+{% block title %}
+    Cerrar sesión - PracticaDjango
+{% endblock title %}
+
+{% block contenedor %}
+    <div class="row">
+        <div class="col-lg-12 col-md-6 center mt-3 align-content-center">
+            <div class="card">
+                <div class="card-header text-center">
+                    <h3>
+                        <i class="fas fa-sign-out-alt"></i>Cerrar sesión
+                    </h3>
+                </div>
+                <div class="card-body">
+                    <form method="POST" action="{% url 'account_logout' %}" class="needs-validation password_change">
+                        {% csrf_token %}
+                        <p class="text-center">¿Esta seguro que desea cerrar sesión?</p>
+                        {% if redirect_field_value %}
+                            <input type="hidden" name="{{ redirect_field_name }}" value="{{ redirect_field_value }}" />
+                        {% endif %}
+                        <div class="col-md-12 form-group text-center mt-4">
+                            <button class="col-md-6 btn btn-primary" type="submit">Cerrar sesión</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock contenedor %}

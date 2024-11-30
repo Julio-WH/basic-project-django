@@ -1,0 +1,87 @@
+{% extends "home/base.html" %}
+{% load static %}
+{% block title %}PraticaDjango - Julio{% endblock %}
+
+{% block contenedor %}
+
+    <header class="text-black text-center py-5">
+        <div class="container">
+            <h1 class="display-4 fw-bold">¡Bienvenido a PracticaDjango!</h1>
+            <p class="lead">Ofrecemos soluciones innovadoras para tu negocio</p>
+            <a href="#about" class="btn btn-light btn-lg mt-3">Saber más</a>
+        </div>
+    </header>
+
+    <!-- About Section -->
+    <section id="about" class="py-5">
+        <div class="container text-center">
+            <h2 class="fw-bold">Acerca de Nosotros</h2>
+            <p class="text-muted mb-4">Somos líderes en innovación, ofreciendo soluciones personalizadas para nuestros clientes.</p>
+            <div class="row">
+                <div class="col-md-4">
+                    <i class="fas fa-briefcase fa-3x text-primary mb-3"></i>
+                    <h5 class="fw-bold">Experiencia</h5>
+                    <p>Más de 10 años ayudando a empresas a crecer.</p>
+                </div>
+                <div class="col-md-4">
+                    <i class="fas fa-user-friends fa-3x text-primary mb-3"></i>
+                    <h5 class="fw-bold">Equipo</h5>
+                    <p>Profesionales dedicados a tu éxito.</p>
+                </div>
+                <div class="col-md-4">
+                    <i class="fas fa-lightbulb fa-3x text-primary mb-3"></i>
+                    <h5 class="fw-bold">Innovación</h5>
+                    <p>Soluciones creativas y efectivas.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section id="services" class="bg-light py-5">
+        <div class="container text-center">
+            <h2 class="fw-bold">Nuestros Servicios</h2>
+            <p class="text-muted mb-4">Descubre cómo podemos ayudarte.</p>
+            <div class="row">
+                <div class="col-md-4">
+                    <i class="fas fa-chart-line fa-3x text-primary mb-3"></i>
+                    <h5 class="fw-bold">Consultoría</h5>
+                    <p>Ayudamos a tu empresa a alcanzar sus metas.</p>
+                </div>
+                <div class="col-md-4">
+                    <i class="fas fa-cogs fa-3x text-primary mb-3"></i>
+                    <h5 class="fw-bold">Desarrollo</h5>
+                    <p>Soluciones tecnológicas a medida.</p>
+                </div>
+                <div class="col-md-4">
+                    <i class="fas fa-shield-alt fa-3x text-primary mb-3"></i>
+                    <h5 class="fw-bold">Seguridad</h5>
+                    <p>Protección de tus datos e infraestructura.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="py-5">
+        <div class="container text-center">
+            <h2 class="fw-bold">Contáctanos</h2>
+            <p class="text-muted mb-4">Estamos aquí para ayudarte. Escríbenos hoy.</p>
+            <form>
+                <div class="row">
+                    <div class="col-md-6 mb-3">
+                        <input type="text" class="form-control" placeholder="Tu Nombre" required>
+                    </div>
+                    <div class="col-md-6 mb-3">
+                        <input type="email" class="form-control" placeholder="Tu Correo" required>
+                    </div>
+                </div>
+                <div class="mb-3">
+                    <textarea class="form-control" rows="5" placeholder="Tu Mensaje" required></textarea>
+                </div>
+                <button type="submit" class="btn btn-primary">Enviar</button>
+            </form>
+        </div>
+    </section>
+
+{% endblock contenedor %}

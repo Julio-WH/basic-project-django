@@ -1,0 +1,12 @@
+<nav class="navbar bg-body-tertiary" data-bs-theme="dark">
+  <div class="container-fluid">
+    <a class="navbar-brand">Practica Django</a>
+    <form class="d-flex" role="search">
+        {% if request.path == '/accounts/login/' %}
+            <a class="btn btn-success" href="{% url 'index_home' %}">Regresar</a>
+        {% else %}
+            <a class="btn btn-success" href="{% url 'account_login' %}">Login</a>
+        {% endif %}
+    </form>
+  </div>
+</nav>

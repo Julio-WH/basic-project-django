@@ -40,17 +40,23 @@ DEBUG = env('DEBUG')
 
 ALLOWED_HOSTS = []
 
+LOTE_PRINCIPAL=env('LOTE_PRINCIPAL')
+
 
 # Application definition
 
 INSTALLED_APPS = [
+    'widget_tweaks',
+    'allauth',
+    'allauth.account',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'PracticaDjango.apps.users'
+    'PracticaDjango.apps.users',
+    'PracticaDjango.apps.sistemas'
 ]
 
 MIDDLEWARE_CLASSES = [
@@ -70,16 +76,20 @@ MIDDLEWARE = [
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
+    'allauth.account.middleware.AccountMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 ]
 
 ROOT_URLCONF = 'PracticaDjango.core.urls'
+print(BASE_DIR)
 
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
+        'DIRS': [
+            BASE_DIR / 'PracticaDjango/templates',
+        ],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -155,3 +165,27 @@ STATICFILES_DIRS = [
 ]
 
 AUTH_USER_MODEL = 'users.User'
+
+# region django-allauth settings
+AUTHENTICATION_BACKENDS = [
+    # Needed to login by username in Django admin, regardless of `allauth`
+    'django.contrib.auth.backends.ModelBackend',
+
+    # `allauth` specific authentication methods, such as login by e-mail
+    'allauth.account.auth_backends.AuthenticationBackend',
+
+]
+
+LOGIN_REDIRECT_URL = 'panel_home'
+LOGIN_URL = 'account_login'
+ACCOUNT_LOGOUT_REDIRECT_URL = 'account_login'
+
+ACCOUNT_FORMS = {'signup': 'PracticaDjango.apps.sistemas.forms.CustomSignupForm',
+                 }
+ACCOUNT_EMAIL_REQUIRED = True
+ACCOUNT_USERNAME_REQUIRED = True
+
+ACCOUNT_EMAIL_VERIFICATION = "none"  # Opciones: "mandatory", "optional", "none"
+ACCOUNT_EMAIL_CONFIRMATION_HMAC = False  # Desactiva el uso de tokens HMAC para confirmaciones
+
+ACCOUNT_PASSWORD_RESET = False
